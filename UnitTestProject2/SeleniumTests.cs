@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using NUnit.Framework;
+using System.Threading;
 
 namespace ExtentReportSelenium
 {
