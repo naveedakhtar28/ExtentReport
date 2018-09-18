@@ -67,11 +67,11 @@ namespace ExtentReportSelenium
             var fileName = this.GetType().ToString() + ".html";
             var fileDirectory = "C:/Reports/";
             //var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
-            var htmlReporter = new ExtentHtmlReporter(fileDirectory + this.GetType().ToString() + ".html");
+            var htmlReporter = new ExtentHtmlReporter(fileDirectory + fileName);
 
             _extent = new ExtentReports();
-            //htmlReporter.LoadConfig("extent-config.xml");
             _extent.AttachReporter(htmlReporter);
+            //htmlReporter.LoadConfig("extent-config.xml");
             //KlovReporter klovReporter = new KlovReporter();
             //klovReporter.InitMongoDbConnection("localhost", 27017);
             //klovReporter.ProjectName = "Selenium Extent Report";
