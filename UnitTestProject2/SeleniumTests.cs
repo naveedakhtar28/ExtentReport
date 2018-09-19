@@ -9,23 +9,39 @@ namespace ExtentReportSelenium
         [Test]
         public void TestMethod1()
         {
-            driver.Url = "https://www.google.com/gmail/about/#";
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
+            Assert.IsTrue(true);
         }
-
 
         [Test]
         public void TestMethod2()
         {
-            driver.Url = "https://qaweb.empwr.com/";
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
+            Assert.IsTrue(true);
         }
 
         [Test]
         public void TestMethod3()
         {
-            driver.Url = "https://www.news18.com/";
-            Thread.Sleep(3000);
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void TestMethod4()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void TestMethod5()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void TestMethod6()
+        {
+            Assert.IsTrue(true);
         }
 
     }
