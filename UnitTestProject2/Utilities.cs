@@ -118,6 +118,7 @@ namespace ExtentReportSelenium
         public void OneTimeTeardown()
         {
             driver.Quit();
+            _extent.Flush();
         }
 
     }
