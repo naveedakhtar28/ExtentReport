@@ -70,7 +70,7 @@ namespace ExtentReportSelenium
             var htmlReporter = new ExtentHtmlReporter(fileDirectory + fileName);
 
             _extent = new ExtentReports();
-            htmlReporter.LoadConfig("UnitTestProject2/extent-config.xml");
+            //htmlReporter.LoadConfig("UnitTestProject2/extent-config.xml");
             _extent.AttachReporter(htmlReporter);
             //KlovReporter klovReporter = new KlovReporter();
             //klovReporter.InitMongoDbConnection("localhost", 27017);
