@@ -10,14 +10,14 @@ namespace ExtentReportSelenium
         public void TestMethod1()
         {
             Thread.Sleep(1000);
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
         [Test]
         public void TestMethod2()
         {
             Thread.Sleep(2000);
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
         [Test]
