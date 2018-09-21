@@ -68,7 +68,7 @@ namespace ExtentReportSelenium
             {
                 var fileName = ExecutionTime + ".html";
                 var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-                var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + fileName);
+                var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/Reports/" + fileName);
                 _extent = new ExtentReports();
                 _extent.AttachReporter(htmlReporter);
             }
