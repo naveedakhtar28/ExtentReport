@@ -24,6 +24,7 @@ namespace ExtentReportSelenium
         {
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
             var ExecutionEnvironment = System.Environment.GetEnvironmentVariable("Environment");
+            var ExecutionTime = System.Environment.GetEnvironmentVariable("BUILD_TIMESTAMP");
 
             switch (ExecutionBrowser)
             {
@@ -63,11 +64,14 @@ namespace ExtentReportSelenium
                     Thread.Sleep(10000);
                     break;
             }
-            var fileName = this.GetType().ToString() + ".html";
-            var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-            var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + fileName);
-            _extent = new ExtentReports();
-            _extent.AttachReporter(htmlReporter);
+            if (ExecutionTime != null)
+            {
+                var fileName = this.GetType().ToString() + ".html";
+                var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+                var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + ExecutionTime + fileName);
+                _extent = new ExtentReports();
+                _extent.AttachReporter(htmlReporter);
+            }
         }
 
         [SetUp]
