@@ -67,14 +67,14 @@ namespace ExtentReportSelenium
             if (ExecutionTime != null)
             {
                 var FilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),@"Reports");
-                string Todaysdate = DateTime.Now.ToString("dd-MMM-yyyy");
-                if (!Directory.Exists(FilePath + "/" +Todaysdate))
+                DateTime now = DateTime.Now;
+                if (!Directory.Exists(FilePath + "/" + ExecutionTime))
                 {
-                    Directory.CreateDirectory(FilePath + "/" + Todaysdate);
+                    Directory.CreateDirectory(FilePath + "/" + ExecutionTime);
                 }
-                var fileName = ExecutionTime + ".html";
+                var fileName = now + ".html";
                 var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),@"Reports");
-                var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + Todaysdate + "/" + fileName);
+                var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + ExecutionTime + "/" + fileName);
                 _extent = new ExtentReports();
                 _extent.AttachReporter(htmlReporter);
             }
@@ -89,6 +89,7 @@ namespace ExtentReportSelenium
         [TearDown]
         public void AfterTest()
         {
+            
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
                     ? ""
