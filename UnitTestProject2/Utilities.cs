@@ -90,7 +90,7 @@ namespace ExtentReportSelenium
         [TearDown]
         public void AfterTest()
         {
-            
+
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
                     ? ""
@@ -124,6 +124,8 @@ namespace ExtentReportSelenium
                 ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
                 _test.Fail("details").AddScreenCaptureFromPath(fileName);
             }
+
+            _test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
             _extent.Flush();
         }
         
