@@ -112,7 +112,12 @@ namespace ExtentReportSelenium
                     break;
             }
 
-            _test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
+            var ExecutionTime = System.Environment.GetEnvironmentVariable("BUILD_TIMESTAMP");
+            if (status == TestStatus.Failed)
+            {
+                _test.Fail("details").AddScreenCaptureFromPath(ExecutionTime + ".PNG");
+                //_test.AddScreenCaptureFromPath(ExecutionTime+".PNG");
+            }
             _extent.Flush();
         }
         
