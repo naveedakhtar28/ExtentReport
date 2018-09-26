@@ -119,7 +119,7 @@ namespace ExtentReportSelenium
             
             if (status == TestStatus.Failed)
             {
-                _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "/" + ExecutionDate + "/" + fileName);
+                _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
                 //_test.AddScreenCaptureFromPath(ExecutionTime+".PNG");
             }
             _extent.Flush();
