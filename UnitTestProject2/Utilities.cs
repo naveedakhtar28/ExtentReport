@@ -113,9 +113,13 @@ namespace ExtentReportSelenium
             }
 
             var ExecutionTime = System.Environment.GetEnvironmentVariable("BUILD_TIMESTAMP");
+            var ExecutionDate = System.Environment.GetEnvironmentVariable("BUILD_DATE");
+            var fileName = ExecutionTime + ".html";
+            var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports");
+            
             if (status == TestStatus.Failed)
             {
-                _test.Fail("details").AddScreenCaptureFromPath(ExecutionTime + ".PNG");
+                _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "/" + ExecutionDate + "/" + fileName + ".PNG");
                 //_test.AddScreenCaptureFromPath(ExecutionTime+".PNG");
             }
             _extent.Flush();
