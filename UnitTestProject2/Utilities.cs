@@ -118,9 +118,12 @@ namespace ExtentReportSelenium
             var fileName = ExecutionTime + ".PNG";
             var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports");
 
-            Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
-            ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
-            _test.Fail("details").AddScreenCaptureFromPath(fileName);
+            if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Passed)
+            {
+                Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+                ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
+                _test.Fail("details").AddScreenCaptureFromPath(fileName);
+            }
             _extent.Flush();
         }
         
