@@ -75,6 +75,7 @@ namespace ExtentReportSelenium
                 var fileName = ExecutionTime + ".html";
                 var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),@"Reports");
                 var htmlReporter = new ExtentHtmlReporter(fileDirectory + "/" + ExecutionDate + "/" + fileName);
+                
                 _extent = new ExtentReports();
                 _extent.AttachReporter(htmlReporter);
             }
@@ -116,12 +117,13 @@ namespace ExtentReportSelenium
             var ExecutionDate = System.Environment.GetEnvironmentVariable("BUILD_DATE");
             var fileName = ExecutionTime + ".PNG";
             var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports");
-            
-            if (status == TestStatus.Failed)
-            {
-                _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
+
+            Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+            ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
+            _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
+            //_test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
                 //_test.AddScreenCaptureFromPath(ExecutionTime+".PNG");
-            }
+            
             _extent.Flush();
         }
         
