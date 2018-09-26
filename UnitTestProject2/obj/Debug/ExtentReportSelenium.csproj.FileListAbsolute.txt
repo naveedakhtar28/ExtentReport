@@ -30,6 +30,5 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\bin\Debug\System.Web.Razor.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\bin\Debug\WebDriver.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\bin\Debug\WebDriver.Support.xml
-\\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\obj\Debug\ExtentReportSelenium.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\obj\Debug\UnitTestProject2.dll
 \\Mac\Home\Documents\Visual Studio 2015\Projects\UnitTestProject2\UnitTestProject2\obj\Debug\UnitTestProject2.pdb
