@@ -10,7 +10,7 @@ namespace ExtentReportSelenium
         public void TestMethod1()
         {
             Thread.Sleep(1000);
-            Assert.IsTrue(false);
+            Assert.IsTrue(true);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace ExtentReportSelenium
         [Test]
         public void TestMethod6()
         {
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
     }
