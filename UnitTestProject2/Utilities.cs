@@ -117,11 +117,11 @@ namespace ExtentReportSelenium
             var ExecutionDate = System.Environment.GetEnvironmentVariable("BUILD_DATE");
             var fileName = ExecutionTime + ".PNG";
             var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports");
-
+            var fileNameMethod = this.GetType().ToString() ;
             if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Passed)
             {
                 Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
-                ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
+                ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName + fileNameMethod, ScreenshotImageFormat.Png);
                 _test.Fail("details").AddScreenCaptureFromPath(fileName);
             }
 
