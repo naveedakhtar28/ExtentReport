@@ -120,7 +120,7 @@ namespace ExtentReportSelenium
 
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
             ss.SaveAsFile(fileDirectory + "\\" + ExecutionDate + "\\" + fileName, ScreenshotImageFormat.Png);
-            _test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
+            _test.Fail("details").AddScreenCaptureFromPath(fileName);
             //_test.Fail("details").AddScreenCaptureFromPath(fileDirectory + "\\" + ExecutionDate + "\\" + fileName);
                 //_test.AddScreenCaptureFromPath(ExecutionTime+".PNG");
             
